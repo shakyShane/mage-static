@@ -1,0 +1,12 @@
+version: "2.1"
+
+services:
+  nginx:
+    image: nginx:mainline-alpine
+    volumes:
+      - .docker/certs/:/etc/letsencrypt/live/certs
+      - ./public:/var/www/public
+      - .docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 80:80
+      - 443:443
